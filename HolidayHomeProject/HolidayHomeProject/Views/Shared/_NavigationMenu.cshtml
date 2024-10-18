@@ -1,0 +1,85 @@
+﻿<ul class="navbar-nav navbar-center">
+    @if (ViewBag.IsHost)
+    {
+        <!-- Host-specific navigation -->
+        <li class="nav-item">
+            <a class="nav-link" href="/Host/MyListings">My Listings</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/Host/HostDetails">Bookings</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/Host/Step1">House Register</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/Host/Earnings">Earnings</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/Host/Reviews">Reviews</a>
+        </li>
+    }
+    else
+    {
+        <!-- Regular user-specific navigation -->
+        <li class="nav-item">
+            <a class="nav-link" href="/PlacesToGo">Places to Go</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/Hosts">Hosts</a>
+        </li>
+    }
+</ul>
+@* @if (Context.User.Identity.Name != null)
+{
+    <form asp-controller="Account" asp-action="Logout" method="post" id="logoutForm" class="navbar">
+        <ul class="nav navbar-nav ms-auto">
+            <li>
+                Hello @Context.User.Identity.Name!
+            </li>
+            <li>
+                <button type="submit" class="btn btn-link navbar-btn navbar-link">Log off</button>
+            </li>
+        </ul>
+    </form>
+}
+else
+{
+    <ul class="nav navbar-nav ms-auto">
+        <li class="nav-item">
+            <a class="nav-link text-dark" id="register" asp-controller="Account" asp-action="Registration">Register</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link text-dark" id="login" asp-controller="Account" asp-action="Login">Login</a>
+        </li>
+    </ul>
+} *@
+
+
+@* @using Microsoft.AspNetCore.Identity
+
+@inject SignInManager<UserModel> SignInManager
+@inject UserManager<UserModel> UserManager
+
+<ul class="navbar-nav">
+@if (SignInManager.IsSignedIn(User))
+{
+    <li class="nav-item">
+        <a id="manage" class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Hello @UserManager.GetUserName(User)!</a>
+    </li>
+    <li class="nav-item">
+        <form id="logoutForm" class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+            <button id="logout" type="submit" class="nav-link btn btn-link text-dark border-0">Logout</button>
+        </form>
+    </li>
+}
+else
+{
+    <li class="nav-item">
+        <a class="nav-link text-dark" id="register" asp-area="Identity" asp-page="/Account/Register">Register</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link text-dark" id="login" asp-area="Identity" asp-page="/Account/Login">Login</a>
+    </li>
+}
+</ul>
+ *@
